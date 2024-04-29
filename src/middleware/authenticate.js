@@ -4,7 +4,7 @@ const userService = require('../services/user.service.js');
 const authenticate = async (req, res, next) => {
     try {
         const token = req.headers.authorization?.split(" ")[1];
-console.log("req",req);
+
         if (!token) {
             return res.status(404).send({ error: "Token not found..." });
         }

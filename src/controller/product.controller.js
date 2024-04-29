@@ -2,13 +2,10 @@ const productService = require('../services/product.service.js');
 const reviewService = require("../services/review.service.js")
 const createProduct = async(req, res) => {
     try {
-        console.log("pro con req.body",req.body,req.body.keySpecs);
         const product = await productService.createProduct(req.body);
         return res.status(201).send(product);
 
     } catch (error) {
-        console.log("pro con error",error);
-
         return res.status(500).send({error: error.message});
     }
 }
@@ -41,8 +38,7 @@ const findProductById = async(req, res) => {
 
     try {
         const product = await productService.findProductById(productId);
-        const review = await  reviewService.getAllReview(product._id)
-        console.log("\n\n\n\ #$##$3",review)
+        const review = await  reviewService.getAllReview(product._id)        
         return res.status(201).send({product,review});
 
     } catch (error) {

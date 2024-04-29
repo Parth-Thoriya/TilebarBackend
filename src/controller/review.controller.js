@@ -2,7 +2,6 @@ const reviewService = require('../services/review.service.js');
 
 const createReview = async(req, res) => {
     const user = req.user;
-console.log("##### review controller",user,"\n\n",req.body);
     try {
         const review = await reviewService.createReview(req.body, user);
         return res.status(201).send(review);

@@ -2,7 +2,6 @@ const User = require("../models/user.model");
 const bcrypt = require('bcrypt');
 const jwtProvider = require("../config/jwtProvider.js");
 const Address = require("../models/address.model.js");
-
 const createUser = async (userData) => {
     try {
         let { firstName, lastName, email, password,role } = userData;
@@ -88,23 +87,13 @@ const updateUser = async (userData) => {
         const address = await Address.create(userData.address);
         console.log("#### address user.service",address);
         const oldUser = userData.user;
-        // console.log("#### user user.service",oldUser);
+        
 const myuser = await User.findById(_id);
 console.log("#### myuser user.service",myuser);
 
         const upUser =  await User.findByIdAndUpdate(_id, {...oldUser,address:[...userData.user.address,address._id]}, { new: true });
         console.log("#### upuser user.service",upUser);
-
-        // if (isUserExist) {
-        //     throw new Error("user already exist with email:", email);
-        // }
-
-        // password = await bcrypt.hash(password, 10);
-
-        // const user = await User.create({ firstName, lastName, email, password ,role});
-
         console.log(upUser);
-
         return upUser;
 
     } catch (error) {

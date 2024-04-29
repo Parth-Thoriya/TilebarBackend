@@ -1,10 +1,9 @@
 const Review = require('../models/review.model');
 const productService = require('../services/product.service.js');
 
-
 async function createReview(reqData, user) {
     const product = await productService.findProductById(reqData.productId);
-console.log("### reviews service",product,"\n\n",user)
+
     const review = new Review({
         user: user._id,
         product: product._id,
@@ -16,8 +15,7 @@ console.log("### reviews service",product,"\n\n",user)
     return await review.save();
 }
 
-async function getAllReview(productId) {
-    // const product = await productService.findProductById(reqData.productId);
+async function getAllReview(productId) {    
 
     return await Review.find({product: productId}).populate("user");
 }

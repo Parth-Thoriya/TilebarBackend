@@ -59,8 +59,8 @@ router.post('/stripe', authenticate, async (req, res) => {
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        success_url: "http://localhost:3000/home",
-        cancel_url: "http://localhost:3000/home/key",
+        success_url: "https://tilebar-five.vercel.app/home",        
+        cancel_url: "https://tilebar-five.vercel.app/home/cart",
     })
     
     

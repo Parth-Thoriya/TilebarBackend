@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require("stripe")("sk_test_51Oze9HSDXuRenqofoOINbeU8ZJjJzPSzoXEMRZwPnhqUAGjckXPlUzcZJ8bdMVFIOxezvBqNYLAt7LztyWP2LRbr00IwhJV0Sg");
+const stripe = require("stripe")(process.env.sk);
 const { v4: uuidv4 } = require("uuid");
 
 const authenticate = require('../middleware/authenticate.js');

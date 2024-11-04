@@ -1,2 +1,1 @@
-Project name: TileBar
-mongodbURL: "mongodb+srv://22010101192:22010101192@cluster0.tsxq3nw.mongodb.net/gayatri?retryWrites=true&w=majority"
+
